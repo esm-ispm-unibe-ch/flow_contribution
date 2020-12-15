@@ -1,5 +1,4 @@
-getHatMatrix <- function(indata,type,model="fixed",tau=NA, sm){
-  
+getHatMatrix <- function(indata,type,model="fixed",tau=NA, sm) {
   require(netmeta)
   library(meta)
   library(plyr)
@@ -8,9 +7,10 @@ getHatMatrix <- function(indata,type,model="fixed",tau=NA, sm){
   
   #network meta-analysis
   
-  if (type=="long_binary"){
+  if (type=="long_binary") {
     Dpairs=pairwise(treat=t,event=r,n=n, data=D, studlab = id, sm= sm)
-    metaNetw<-netmeta(TE,seTE,treat1,treat2,studlab,data=Dpairs,sm=sm,comb.fixed =F,comb.random = T,tol.multiarm=T)
+    metaNetw<-netmeta(TE,seTE,treat1,treat2,studlab
+                      ,data=Dpairs,sm=sm,comb.fixed =F,comb.random = T,tol.multiarm=T)
   } 
   
   if (type=="long_continuous"){
